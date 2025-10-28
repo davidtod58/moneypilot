@@ -156,7 +156,17 @@ class AuthSystem {
     }
 
     getAllUsers() {
-        return this.users.filter(user => user.role === 'user');
+    try {
+        // Try multiple localStorage keys to handle different scenarios
+        const users = JSON.parse(localStorage.getItem('moneyPilotUsers')) || 
+                     JSON.parse(localStorage.getItem('moneypilot_users')) || 
+                     [];
+        
+        console.log('Total users found:', users.length);
+        return users.filter(user => user.role === 'user');
+    } catch (error) {
+        console.error('Error loading users:', error);
+        return [];
     }
 }
 
@@ -166,4 +176,5 @@ const auth = new AuthSystem();
 // Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { auth };
+
 }
