@@ -19,26 +19,41 @@ class AdminSystem {
         this.loadPlans();
     }
 
-    checkAdminAuth() {
-        if (!this.auth.isLoggedIn()) {
-            window.location.href = 'admin-login.html';
-            return;
-        }
-
-        this.currentAdmin = this.auth.getCurrentUser();
-        if (this.currentAdmin.role !== 'admin') {
-            window.location.href = 'dashboard.html';
-            return;
-        }
-
-        document.getElementById('adminLogoutBtn').addEventListener('click', () => {
-            this.auth.logout();
-        });
-    }
-
     loadAllUsers() {
-        this.allUsers = this.auth.getAllUsers();
+    console.log('Loading all users...');
+    this.allUsers = this.auth.getAllUsers();
+    console.log('Users loaded:', this.allUsers.length);
+    
+    // Debug: Check what's in localStorage
+    const allStorageData = JSON.parse(localStorage.getItem('moneyPilotUsers')) || [];
+    console.log('Raw storage data:', allStorageData);
+}
+
+checkAdminAuth() {
+    console.log('Checking admin auth...');
+    
+    if (!this.auth.isLoggedIn()) {
+        console.log('Not logged in, redirecting to admin login');
+        window.location.href = 'admin-login.html';
+        return;
     }
+
+    this.currentAdmin = this.auth.getCurrentUser();
+    console.log('Current admin:', this.currentAdmin);
+    
+    if (this.currentAdmin.role !== 'admin') {
+        console.log('Not admin, redirecting to user dashboard');
+        window.location.href = 'dashboard.html';
+        return;
+    }
+
+    // Setup logout
+    document.getElementById('adminLogoutBtn').addEventListener('click', () => {
+        this.auth.logout();
+    });
+    
+    console.log('Admin auth successful');
+}
 
     setupEventListeners() {
         document.querySelectorAll('.admin-nav-item').forEach(item => {
@@ -676,4 +691,5 @@ class AdminSystem {
 let adminSystem;
 document.addEventListener('DOMContentLoaded', () => {
     adminSystem = new AdminSystem();
+
 });
