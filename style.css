@@ -467,4 +467,199 @@ input:checked + .toggle-slider:before {
     .stat-card {
         padding: 1.5rem;
     }
+
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    /* Header & Navigation */
+    header .container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 100px 1rem 60px;
+        margin-top: 80px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        max-width: 300px;
+        margin: 0.5rem 0;
+    }
+
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Investment Plans */
+    .plans-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .plan-card {
+        margin: 0 1rem;
+    }
+
+    /* Forms */
+    .form-container {
+        margin: 100px 1rem 50px;
+        padding: 1.5rem;
+    }
+
+    /* Dashboard */
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    /* Tables */
+    .transactions-table {
+        overflow-x: auto;
+    }
+
+    .transactions-table table {
+        min-width: 600px;
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra Small Devices */
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-card {
+        margin: 0 0.5rem;
+        padding: 1.5rem;
+    }
+
+    /* Buttons */
+    .btn-primary, .btn-secondary, .btn-plan {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Forms */
+    .form-group input, .form-group select, .form-group textarea {
+        padding: 0.875rem;
+    }
+
+    /* Dashboard Sidebar */
+    .sidebar-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .nav-item {
+        text-align: center;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Better touch targets */
+    nav a, .btn-primary, .btn-secondary, .btn-plan, .btn-action {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Remove hover effects on touch devices */
+    .btn-primary:hover, .btn-secondary:hover, .btn-plan:hover {
+        transform: none;
+    }
+
+    /* Improve form touch targets */
+    .form-group input, .form-group select, .form-group textarea {
+        min-height: 44px;
+    }
+
+    /* Better table touch */
+    .transactions-table td, .transactions-table th {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Prevent zoom on input focus iOS */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve text readability on mobile */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
