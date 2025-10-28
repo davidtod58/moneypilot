@@ -544,8 +544,7 @@
 }
 
 .dashboard-nav a.active {
-    background: white;
-    color: #2c5aa0;
+    color: white;
     border-color: white;
     box-shadow: 0 4px 15px rgba(255,255,255,0.2);
 }
@@ -642,3 +641,4 @@
         text-align: center;
     }
 }
+
