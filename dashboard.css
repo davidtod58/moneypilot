@@ -373,7 +373,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 740px) {
     .dashboard-container {
         flex-direction: column;
     }
@@ -563,7 +563,7 @@
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 740px) {
     .dashboard-container {
         flex-direction: column;
     }
@@ -640,5 +640,6 @@
         text-align: center;
     }
 }
+
 
 
