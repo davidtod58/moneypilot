@@ -42,39 +42,47 @@ class AuthSystem {
         localStorage.setItem('moneyPilotUsers', JSON.stringify(this.users));
     }
 
-    register(userData) {
-        // Check if user already exists
-        if (this.users.find(user => user.email === userData.email)) {
-            return { success: false, message: 'User already exists with this email' };
-        }
-
-        const newUser = {
-            id: this.generateId(),
-            email: userData.email,
-            phone: userData.phone,
-            password: this.hashPassword(userData.password),
-            fullName: userData.fullName,
-            role: 'user',
-            balance: 0,
-            plan: 'free',
-            kycVerified: false,
-            referralCode: this.generateReferralCode(),
-            referredBy: userData.referralCode || null,
-            joinedDate: new Date().toISOString(),
-            investments: [],
-            transactions: []
-        };
-
-        this.users.push(newUser);
-        this.saveUsers();
-
-        // Handle referral bonus
-        if (userData.referralCode) {
-            this.processReferralBonus(userData.referralCode, newUser.id);
-        }
-
-        return { success: true, message: 'Registration successful' };
+   register(userData) {
+    // Check if user already exists
+    const existingUsers = JSON.parse(localStorage.getItem('moneyPilotUsers')) || [];
+    
+    if (existingUsers.find(user => user.email === userData.email)) {
+        return { success: false, message: 'User already exists with this email' };
     }
+
+    const newUser = {
+        id: this.generateId(),
+        email: userData.email,
+        phone: userData.phone,
+        password: this.hashPassword(userData.password),
+        fullName: userData.fullName,
+        role: 'user',
+        balance: 0,
+        plan: 'free',
+        kycVerified: false,
+        referralCode: this.generateReferralCode(),
+        referredBy: userData.referralCode || null,
+        joinedDate: new Date().toISOString(),
+        investments: [],
+        transactions: []
+    };
+
+    existingUsers.push(newUser);
+    
+    // Save to both keys for compatibility
+    localStorage.setItem('moneyPilotUsers', JSON.stringify(existingUsers));
+    localStorage.setItem('moneypilot_users', JSON.stringify(existingUsers));
+    
+    console.log('New user registered:', newUser.email);
+    console.log('Total users now:', existingUsers.length);
+
+    // Handle referral bonus
+    if (userData.referralCode) {
+        this.processReferralBonus(userData.referralCode, newUser.id);
+    }
+
+    return { success: true, message: 'Registration successful' };
+}
 
     generateReferralCode() {
         return Math.random().toString(36).substring(2, 8).toUpperCase();
@@ -178,3 +186,4 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = { auth };
 
 }
+
