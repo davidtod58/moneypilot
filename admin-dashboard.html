@@ -235,6 +235,12 @@
         </div>
     </div>
 
+   <!-- Add this to your admin dashboard, maybe in Settings section -->
+<div class="debug-panel" style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-top: 2rem;">
+    <h4>Debug Information</h4>
+    <button onclick="adminSystem.debugSystem()" class="btn-action">Run System Debug</button>
+    <div id="debugOutput" style="margin-top: 1rem; font-family: monospace; font-size: 0.8rem;"></div>
+</div> 
     <!-- User Edit Modal -->
     <div id="userEditModal" class="modal">
         <div class="modal-content">
@@ -349,3 +355,4 @@ function ensureAdminUser() {
 </body>
 
 </html>
+
