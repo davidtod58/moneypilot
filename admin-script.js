@@ -693,3 +693,32 @@ document.addEventListener('DOMContentLoaded', () => {
     adminSystem = new AdminSystem();
 
 });
+
+// Add to AdminSystem class
+debugSystem() {
+    const output = document.getElementById('debugOutput');
+    let debugInfo = '';
+    
+    // Check localStorage
+    const moneyPilotUsers = JSON.parse(localStorage.getItem('moneyPilotUsers')) || [];
+    const moneypilotUsers = JSON.parse(localStorage.getItem('moneypilot_users')) || [];
+    const currentUser = JSON.parse(localStorage.getItem('currentMoneyPilotUser')) || 'Not found';
+    
+    debugInfo += `=== LOCALSTORAGE CHECK ===\n`;
+    debugInfo += `moneyPilotUsers: ${moneyPilotUsers.length} users\n`;
+    debugInfo += `moneypilot_users: ${moneypilotUsers.length} users\n`;
+    debugInfo += `Current user: ${currentUser.email || 'Not logged in'}\n\n`;
+    
+    debugInfo += `=== ADMIN SYSTEM CHECK ===\n`;
+    debugInfo += `All Users: ${this.allUsers.length}\n`;
+    debugInfo += `Current Admin: ${this.currentAdmin ? this.currentAdmin.email : 'None'}\n`;
+    debugInfo += `Auth Status: ${this.auth.isLoggedIn() ? 'Logged In' : 'Logged Out'}\n\n`;
+    
+    debugInfo += `=== USER LIST ===\n`;
+    this.allUsers.forEach((user, index) => {
+        debugInfo += `${index + 1}. ${user.email} (${user.role}) - Balance: GHS ${user.balance}\n`;
+    });
+    
+    output.textContent = debugInfo;
+    console.log('Debug info:', debugInfo);
+}
