@@ -66,7 +66,6 @@
 
 .content-section.active {
     display: block;
-    animation: fadeIn 0.3s ease-in;
 }
 
 .stats-grid {
@@ -122,16 +121,11 @@
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
-    transition: all 0.3s ease;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: background 0.3s;
 }
 
 .btn-action:hover {
     background: #1e3a8a;
-    transform: translateY(-2px);
 }
 
 .recent-activity, .daily-tasks {
@@ -197,10 +191,6 @@
     text-decoration: none;
     border-radius: 5px;
     font-size: 0.9rem;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Plans Grid in Dashboard */
@@ -259,7 +249,6 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
-    min-height: 44px;
 }
 
 .link-container button {
@@ -269,10 +258,6 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .share-buttons {
@@ -289,11 +274,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
 }
 
 .share-btn:hover {
@@ -390,11 +370,104 @@
     top: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    min-height: 44px;
-    min-width: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .referral-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .share-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+/* Active state styling to match existing design */
+.nav-item.active {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Status badges */
+.plan-badge {
+    background: #00d9a6;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 0.5rem 0;
+}
+
+.status-pending {
+    color: #ffa502;
+    font-weight: bold;
+}
+
+.status-verified {
+    color: #00d9a6;
+    font-weight: bold;
+}
+
+.status-completed {
+    color: #00d9a6;
+    font-weight: bold;
+}
+
+.transaction-amount.positive {
+    color: #00d9a6;
+    font-weight: bold;
+}
+
+.transaction-amount.negative {
+    color: #ff4757;
+    font-weight: bold;
 }
 
 /* Animation for section transitions */
@@ -407,6 +480,36 @@
         opacity: 1; 
         transform: translateY(0); 
     }
+}
+
+/* Button active states */
+.btn-action:active, 
+.btn-plan:active {
+    transform: translateY(1px);
+}
+
+/* Modal active state */
+.modal.active {
+    display: block;
+}
+
+/* Investment plan active state in dashboard */
+.plan-card.active {
+    border-color: #2c5aa0;
+    box-shadow: 0 5px 20px rgba(44, 90, 160, 0.3);
+}
+
+/* Tab active states */
+.tab-btn.active {
+    background: #2c5aa0;
+    color: white;
+}
+
+/* Form input active states */
+.form-group input:active,
+.form-group select:active,
+.form-group textarea:active {
+    border-color: #2c5aa0;
 }
 
 /* Dashboard Navigation Bar Styling */
@@ -433,10 +536,6 @@
     transition: all 0.3s ease;
     font-weight: 500;
     border: 2px solid transparent;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .dashboard-nav a:hover {
@@ -451,9 +550,21 @@
     box-shadow: 0 4px 15px rgba(255,255,255,0.2);
 }
 
-/* ===== MOBILE RESPONSIVE STYLES ===== */
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .dashboard-nav .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .dashboard-nav a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+}
 
-/* Tablet and Mobile (768px and below) */
+
 @media (max-width: 768px) {
     .dashboard-container {
         flex-direction: column;
@@ -483,48 +594,18 @@
 
     .plans-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .plan-card {
-        padding: 1.5rem;
-        margin: 0 0.5rem;
     }
 
     .referral-stats {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .referral-link {
-        padding: 1.5rem;
-    }
-
-    .link-container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .link-container button {
-        width: 100%;
     }
 
     .share-buttons {
         flex-direction: column;
     }
 
-    .share-btn {
-        width: 100%;
-        justify-content: center;
-    }
-
     .profile-content {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .profile-info, .security-settings, .kyc-status {
-        padding: 1.5rem;
     }
 
     .sidebar-nav {
@@ -536,119 +617,28 @@
     .nav-item {
         text-align: center;
         padding: 0.75rem 0.5rem;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .dashboard-nav .container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .dashboard-nav a {
-        width: 100%;
-        text-align: center;
-        padding: 1rem;
-    }
-
-    .transactions-table {
-        overflow-x: auto;
-    }
-
-    .transactions-table table {
-        min-width: 600px;
-    }
-
-    .modal-content {
-        margin: 10% auto;
-        width: 95%;
-        padding: 1.5rem;
     }
 }
 
-/* Small Mobile (480px and below) */
 @media (max-width: 480px) {
     .stats-grid {
         grid-template-columns: 1fr;
-    }
-
-    .main-content {
-        padding: 0.5rem;
-    }
-
-    .stat-card {
-        padding: 1rem;
-    }
-
-    .stat-card p {
-        font-size: 1.25rem;
-    }
-
-    .quick-actions, .recent-activity, .daily-tasks {
-        padding: 1rem;
     }
 
     .transaction-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-        padding: 0.75rem;
     }
 
     .task-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-        padding: 0.75rem;
     }
 
     .btn-task {
         align-self: stretch;
         text-align: center;
-    }
-
-    .sidebar-nav {
-        grid-template-columns: 1fr;
-    }
-
-    .plan-card {
-        padding: 1rem;
-        margin: 0;
-    }
-
-    .referral-link {
-        padding: 1rem;
-    }
-
-    .profile-info, .security-settings, .kyc-status {
-        padding: 1rem;
-    }
-
-    .modal-content {
-        margin: 5% auto;
-        padding: 1rem;
-    }
-}
-
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    .btn-action:hover,
-    .btn-task:hover,
-    .share-btn:hover,
-    .dashboard-nav a:hover {
-        transform: none;
-    }
-
-    .plan-card:hover {
-        transform: none;
-    }
-}
-
-/* Prevent zoom on input focus iOS */
-@media (max-width: 768px) {
-    input, select, textarea {
-        font-size: 16px;
     }
 }
