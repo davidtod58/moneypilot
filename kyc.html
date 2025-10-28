@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Verification - MoneyPilot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MoneyPilot</h1>
+            </div>
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="kyc.html" class="active">KYC</a>
+                <a href="withdraw.html">Withdraw</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>KYC Verification</h2>
+        
+        <div class="kyc-status" id="kycStatusSection">
+            <div class="status-card pending" id="statusPending">
+                <h3>🔍 Verification Pending</h3>
+                <p>Your KYC verification is required to enable withdrawals and access all platform features.</p>
+            </div>
+            
+            <div class="status-card verified" id="statusVerified" style="display: none;">
+                <h3>✅ Verification Complete</h3>
+                <p>Your identity has been successfully verified. You can now make withdrawals.</p>
+            </div>
+        </div>
+
+        <form id="kycForm">
+            <div class="form-section">
+                <h3>Personal Information</h3>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required 
+                           value="" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required 
+                           value="" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required 
+                           value="" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="idType">ID Document Type</label>
+                    <select id="idType" name="idType" required>
+                        <option value="">Select ID Type</option>
+                        <option value="passport">Passport</option>
+                        <option value="driver_license">Driver's License</option>
+                        <option value="national_id">National ID Card</option>
+                        <option value="voter_id">Voter's ID</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="idNumber">ID Number</label>
+                    <input type="text" id="idNumber" name="idNumber" required 
+                           placeholder="Enter your ID number">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Identity Verification</h3>
+                
+                <div class="upload-group">
+                    <label>Front of ID Document</label>
+                    <div class="upload-area" id="frontIdUpload">
+                        <div class="upload-placeholder">
+                            <span>📄</span>
+                            <p>Click to upload front of ID</p>
+                            <small>Supported formats: JPG, PNG, PDF (Max 5MB)</small>
+                        </div>
+                        <input type="file" id="frontId" name="frontId" accept="image/*,.pdf" hidden>
+                    </div>
+                    <div class="upload-preview" id="frontIdPreview"></div>
+                </div>
+
+                <div class="upload-group">
+                    <label>Back of ID Document</label>
+                    <div class="upload-area" id="backIdUpload">
+                        <div class="upload-placeholder">
+                            <span>📄</span>
+                            <p>Click to upload back of ID</p>
+                            <small>Supported formats: JPG, PNG, PDF (Max 5MB)</small>
+                        </div>
+                        <input type="file" id="backId" name="backId" accept="image/*,.pdf" hidden>
+                    </div>
+                    <div class="upload-preview" id="backIdPreview"></div>
+                </div>
+
+                <div class="upload-group">
+                    <label>Selfie with ID Document</label>
+                    <div class="upload-area" id="selfieUpload">
+                        <div class="upload-placeholder">
+                            <span>📸</span>
+                            <p>Click to upload selfie with ID</p>
+                            <small>Take a clear selfie holding your ID next to your face</small>
+                        </div>
+                        <input type="file" id="selfie" name="selfie" accept="image/*" hidden>
+                    </div>
+                    <div class="upload-preview" id="selfiePreview"></div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Declaration</h3>
+                <div class="declaration">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="declaration" name="declaration" required>
+                        <span class="checkmark"></span>
+                        I declare that the information provided is true and accurate to the best of my knowledge. 
+                        I understand that providing false information may result in account suspension.
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitKyc">Submit for Verification</button>
+        </form>
+
+        <div class="kyc-instructions">
+            <h3>Verification Instructions</h3>
+            <div class="instructions-grid">
+                <div class="instruction-item">
+                    <h4>📄 ID Document Requirements</h4>
+                    <ul>
+                        <li>Document must be valid and not expired</li>
+                        <li>All text must be clear and readable</li>
+                        <li>Upload both front and back sides</li>
+                        <li>File size should not exceed 5MB</li>
+                    </ul>
+                </div>
+                
+                <div class="instruction-item">
+                    <h4>📸 Selfie Requirements</h4>
+                    <ul>
+                        <li>Take a clear photo of yourself</li>
+                        <li>Hold your ID document next to your face</li>
+                        <li>Ensure both your face and ID are clearly visible</li>
+                        <li>Good lighting and no filters</li>
+                    </ul>
+                </div>
+                
+                <div class="instruction-item">
+                    <h4>⏱️ Processing Time</h4>
+                    <ul>
+                        <li>Typically processed within 24-48 hours</li>
+                        <li>You'll receive email notification</li>
+                        <li>Withdrawals enabled after verification</li>
+                        <li>Contact support if delayed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        class KYCSystem {
+            constructor() {
+                this.auth = auth;
+                this.currentUser = null;
+                this.init();
+            }
+
+            init() {
+                this.checkAuthentication();
+                this.loadUserData();
+                this.setupEventListeners();
+                this.setupFileUploads();
+            }
+
+            checkAuthentication() {
+                if (!this.auth.isLoggedIn()) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+                this.currentUser = this.auth.getCurrentUser();
+                
+                document.getElementById('logoutBtn').addEventListener('click', () => {
+                    this.auth.logout();
+                });
+
+                // If already verified, show status
+                if (this.currentUser.kycVerified) {
+                    this.showVerifiedStatus();
+                }
+            }
+
+            loadUserData() {
+                document.getElementById('fullName').value = this.currentUser.fullName;
+                document.getElementById('email').value = this.currentUser.email;
+                document.getElementById('phone').value = this.currentUser.phone;
+            }
+
+            setupEventListeners() {
+                document.getElementById('kycForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitKYC();
+                });
+            }
+
+            setupFileUploads() {
+                this.setupUploadArea('frontIdUpload', 'frontId', 'frontIdPreview');
+                this.setupUploadArea('backIdUpload', 'backId', 'backIdPreview');
+                this.setupUploadArea('selfieUpload', 'selfie', 'selfiePreview');
+            }
+
+            setupUploadArea(uploadAreaId, fileInputId, previewId) {
+                const uploadArea = document.getElementById(uploadAreaId);
+                const fileInput = document.getElementById(fileInputId);
+                const preview = document.getElementById(previewId);
+
+                uploadArea.addEventListener('click', () => {
+                    fileInput.click();
+                });
+
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('dragover');
+                });
+
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('dragover');
+                });
+
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        this.handleFileSelect(files[0], fileInput, preview, uploadArea);
+                    }
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        this.handleFileSelect(e.target.files[0], fileInput, preview, uploadArea);
+                    }
+                });
+            }
+
+            handleFileSelect(file, fileInput, preview, uploadArea) {
+                // Validate file
+                if (!this.validateFile(file)) {
+                    return;
+                }
+
+                // Create preview
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.innerHTML = `
+                        <div class="preview-item">
+                            <img src="${e.target.result}" alt="Preview">
+                            <button type="button" class="remove-btn" onclick="this.parentElement.remove(); document.getElementById('${fileInput.id}').value = '';">×</button>
+                        </div>
+                    `;
+                    uploadArea.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+
+            validateFile(file) {
+                const maxSize = 5 * 1024 * 1024; // 5MB
+                const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
+
+                if (file.size > maxSize) {
+                    alert('File size must be less than 5MB');
+                    return false;
+                }
+
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Please upload JPG, PNG, or PDF files only');
+                    return false;
+                }
+
+                return true;
+            }
+
+            submitKYC() {
+                const formData = new FormData(document.getElementById('kycForm'));
+                
+                // Check if all files are uploaded
+                const frontId = document.getElementById('frontId').files[0];
+                const backId = document.getElementById('backId').files[0];
+                const selfie = document.getElementById('selfie').files[0];
+
+                if (!frontId || !backId || !selfie) {
+                    alert('Please upload all required documents');
+                    return;
+                }
+
+                // Create KYC submission
+                const kycSubmission = {
+                    id: this.generateId(),
+                    idType: formData.get('idType'),
+                    idNumber: formData.get('idNumber'),
+                    status: 'pending',
+                    submittedAt: new Date().toISOString(),
+                    documents: {
+                        frontId: frontId.name,
+                        backId: backId.name,
+                        selfie: selfie.name
+                    }
+                };
+
+                // Update user data
+                this.currentUser.kycSubmission = kycSubmission;
+
+                // Save to localStorage
+                this.auth.updateUser(this.currentUser.id, {
+                    kycSubmission: kycSubmission
+                });
+
+                alert('KYC submitted successfully! Your verification will be processed within 24-48 hours.');
+                document.getElementById('kycForm').reset();
+                
+                // Reset file previews
+                document.querySelectorAll('.upload-preview').forEach(preview => {
+                    preview.innerHTML = '';
+                });
+                document.querySelectorAll('.upload-area').forEach(area => {
+                    area.style.display = 'block';
+                });
+            }
+
+            showVerifiedStatus() {
+                document.getElementById('statusPending').style.display = 'none';
+                document.getElementById('statusVerified').style.display = 'block';
+                document.getElementById('kycForm').style.display = 'none';
+                document.getElementById('submitKyc').style.display = 'none';
+            }
+
+            generateId() {
+                return Date.now().toString(36) + Math.random().toString(36).substr(2);
+            }
+        }
+
+        // Initialize KYC system
+        document.addEventListener('DOMContentLoaded', () => {
+            new KYCSystem();
+        });
+    </script>
+
+    <style>
+        .kyc-status {
+            margin-bottom: 2rem;
+        }
+
+        .status-card {
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .status-card.pending {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+
+        .status-card.verified {
+            background: #d1edff;
+            border: 1px solid #b3d9ff;
+            color: #004085;
+        }
+
+        .form-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-section h3 {
+            color: #2c5aa0;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f8f9fa;
+            padding-bottom: 0.5rem;
+        }
+
+        .upload-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+        .upload-area:hover, .upload-area.dragover {
+            border-color: #2c5aa0;
+            background: #e3f2fd;
+        }
+
+        .upload-placeholder span {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .upload-preview {
+            margin-top: 1rem;
+        }
+
+        .preview-item {
+            position: relative;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        .preview-item img {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .declaration {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .checkbox-container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            font-size: 1rem;
+            user-select: none;
+        }
+
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 3px;
+        }
+
+        .checkbox-container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        .checkbox-container input:checked ~ .checkmark {
+            background-color: #2c5aa0;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .checkbox-container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        .kyc-instructions {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .instruction-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .instruction-item h4 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .instruction-item ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .instruction-item li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .instructions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-item img {
+                max-width: 150px;
+                max-height: 100px;
+            }
+        }
+    </style>
+</body>
+</html>

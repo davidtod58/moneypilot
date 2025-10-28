@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MoneyPilot</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MoneyPilot Admin</h1>
+            </div>
+            <nav>
+                <a href="index.html"  class="active">Main Site</a>
+                <a href="#" id="adminLogoutBtn"  class="active">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <div class="admin-sidebar">
+            <div class="admin-info">
+                <h3>Administrator</h3>
+                <p>System Control Panel</p>
+            </div>
+            <nav class="admin-nav">
+                <a href="#overview" class="admin-nav-item active">Overview</a>
+                <a href="#users" class="admin-nav-item">Manage Users</a>
+                <a href="#transactions" class="admin-nav-item">Transactions</a>
+                <a href="#kyc" class="admin-nav-item">KYC Approvals</a>
+                <a href="#plans" class="admin-nav-item">Investment Plans</a>
+                <a href="#settings" class="admin-nav-item">Settings</a>
+            </nav>
+        </div>
+
+        <div class="admin-main">
+            <!-- Overview Section -->
+            <section id="overview" class="admin-section active">
+                <h2>System Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Users</h3>
+                        <p id="totalUsers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Investments</h3>
+                        <p id="totalInvestments">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Deposits</h3>
+                        <p id="totalDeposits">GHS 0.00</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Withdrawals</h3>
+                        <p id="totalWithdrawals">GHS 0.00</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending KYC</h3>
+                        <p id="pendingKYC">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>System Balance</h3>
+                        <p id="systemBalance">GHS 0.00</p>
+                    </div>
+                </div>
+
+                <div class="recent-activities">
+                    <div class="activity-card">
+                        <h3>Recent Registrations</h3>
+                        <div id="recentRegistrations" class="activity-list">
+                            <!-- Recent users will be populated here -->
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Pending Actions</h3>
+                        <div id="pendingActions" class="activity-list">
+                            <!-- Pending actions will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Management Section -->
+            <section id="users" class="admin-section">
+                <div class="section-header">
+                    <h2>User Management</h2>
+                    <div class="search-box">
+                        <input type="text" id="userSearch" placeholder="Search users...">
+                        <button onclick="adminSystem.searchUsers()">Search</button>
+                    </div>
+                </div>
+
+                <div class="users-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Plan</th>
+                                <th>Balance</th>
+                                <th>KYC Status</th>
+                                <th>Joined Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Transactions Management Section -->
+            <section id="transactions" class="admin-section">
+                <div class="section-header">
+                    <h2>Transaction Management</h2>
+                    <div class="filter-options">
+                        <select id="transactionFilter">
+                            <option value="all">All Transactions</option>
+                            <option value="deposit">Deposits</option>
+                            <option value="withdrawal">Withdrawals</option>
+                            <option value="investment">Investments</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="transactions-table">
+                    <table>
+                        <thead>
+                           <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Method/Account</th>
+            <th>File</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="transactionsTableBody">
+        <!-- Transactions will be populated here -->
+    </tbody>
+</table>
+                </div>
+            </section>
+
+            <!-- KYC Approvals Section -->
+            <section id="kyc" class="admin-section">
+                <h2>KYC Verification Requests</h2>
+                <div id="kycRequests" class="kyc-grid">
+                    <!-- KYC requests will be populated here -->
+                </div>
+            </section>
+
+            <!-- Investment Plans Section -->
+            <section id="plans" class="admin-section">
+                <h2>Investment Plans Management</h2>
+                <div class="plans-management">
+                    <div class="plans-list">
+                        <h3>Current Plans</h3>
+                        <div id="plansList" class="plans-cards">
+                            <!-- Plans will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <div class="plan-editor">
+                        <h3>Edit Plan</h3>
+                        <form id="planEditForm">
+                            <div class="form-group">
+                                <label for="editPlanName">Plan Name</label>
+                                <input type="text" id="editPlanName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPlanAmount">Investment Amount (GHS)</label>
+                                <input type="number" id="editPlanAmount" name="amount" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPlanReturn">Expected Return (GHS)</label>
+                                <input type="number" id="editPlanReturn" name="return" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPlanPeriod">Maturity Period (Weeks)</label>
+                                <input type="number" id="editPlanPeriod" name="period" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPlanLimit">Withdrawal Limit (GHS)</label>
+                                <input type="number" id="editPlanLimit" name="limit" required>
+                            </div>
+                            <button type="submit" class="btn-submit">Update Plan</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="admin-section">
+                <h2>System Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>General Settings</h3>
+                        <form id="generalSettings">
+                            <div class="form-group">
+                                <label for="siteName">Site Name</label>
+                                <input type="text" id="siteName" value="MoneyPilot" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminEmail">Admin Email</label>
+                                <input type="email" id="adminEmail" value="admin@moneypilot.site" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exchangeRate">GHS to USD Rate</label>
+                                <input type="number" id="exchangeRate" value="12.5" step="0.01" required>
+                            </div>
+                            <button type="submit" class="btn-submit">Save Settings</button>
+                        </form>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>User Management</h3>
+                        <div class="setting-actions">
+                            <button onclick="adminSystem.exportUserData()" class="btn-action">Export User Data</button>
+                            <button onclick="adminSystem.backupSystem()" class="btn-action">Backup System</button>
+                            <button onclick="adminSystem.clearTestData()" class="btn-action danger">Clear Test Data</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- User Edit Modal -->
+    <div id="userEditModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Edit User</h3>
+            <form id="userEditForm">
+                <input type="hidden" id="editUserId">
+                <div class="form-group">
+                    <label for="editUserName">Full Name</label>
+                    <input type="text" id="editUserName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editUserEmail">Email</label>
+                    <input type="email" id="editUserEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="editUserPhone">Phone</label>
+                    <input type="tel" id="editUserPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="editUserBalance">Balance (GHS)</label>
+                    <input type="number" id="editUserBalance" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="editUserPlan">Plan</label>
+                    <select id="editUserPlan" required>
+                        <option value="free">Free</option>
+                        <option value="bronze">Bronze</option>
+                        <option value="silver">Silver</option>
+                        <option value="gold">Gold</option>
+                        <option value="platinum">Platinum</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editUserKYC">KYC Verified</label>
+                    <select id="editUserKYC">
+                        <option value="false">Not Verified</option>
+                        <option value="true">Verified</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Update User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Transaction Action Modal -->
+    <div id="transactionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="transactionModalTitle">Transaction Action</h3>
+            <div id="transactionModalContent">
+                <!-- Content will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="admin-script.js"></script>
+</body>
+</html>

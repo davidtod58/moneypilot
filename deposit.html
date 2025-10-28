@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Funds - MoneyPilot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MoneyPilot</h1>
+            </div>
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="deposit.html" class="active">Deposit</a>
+                <a href="withdraw.html">Withdraw</a>
+                <a href="plans.html">Invest</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>Deposit Funds</h2>
+        
+        <div class="deposit-methods">
+            <div class="method-tabs">
+                <button class="tab-btn active" data-method="mobile">Mobile Money</button>
+                <button class="tab-btn" data-method="crypto">Cryptocurrency</button>
+            </div>
+
+            <!-- Mobile Money Deposit -->
+            <div id="mobile-deposit" class="method-content active">
+                <div class="payment-instructions">
+                    <h3>Send Money via Mobile Money</h3>
+                    <div class="recipient-info">
+                        <h4>Recipient Details:</h4>
+                        <p><strong>Name:</strong> FRED AYI POKU</p>
+                        <p><strong>Phone Number:</strong> 0205815006</p>
+                        <p><strong>Network:</strong> Telecel</p>
+                    </div>
+
+                    <div class="network-instructions">
+                        <h4>Step-by-Step Instructions:</h4>
+                        
+                        <div class="instruction-section">
+                            <h5>For MTN Mobile Money Users:</h5>
+                            <ol>
+                                <li>Dial *170#</li>
+                                <li>Select Option 1 – Transfer Money</li>
+                                <li>Choose Option 5 - Other Networks</li>
+                                <li>Choose Option 2 - Telecel</li>
+                                <li>Enter recipient number: <strong>0205815006</strong></li>
+                                <li>Confirm Mobile Number: <strong>0205815006</strong></li>
+                                <li>Enter amount to transfer</li>
+                                <li>Enter reference ID: <strong>MoneyPilot</strong></li>
+                                <li>Enter PIN to confirm</li>
+                                <li>Save or screenshot your transaction confirmation</li>
+                            </ol>
+                        </div>
+
+                        <div class="instruction-section">
+                            <h5>For Telecel Cash Users:</h5>
+                            <ol>
+                                <li>Dial *110#</li>
+                                <li>Select Option 1 – Send Money</li>
+                                <li>Choose Option 1 – To Telecel User</li>
+                                <li>Enter recipient number: <strong>0205815006</strong></li>
+                                <li>Enter amount</li>
+                                <li>Enter reference: <strong>MoneyPilot</strong></li>
+                                <li>Enter PIN to confirm</li>
+                                <li>Screenshot the confirmation message</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="mobileDepositForm">
+                    <div class="form-group">
+                        <label for="mobileNetwork">Your Network</label>
+                        <select id="mobileNetwork" name="mobileNetwork" required>
+                            <option value="">Select Network</option>
+                            <option value="mtn">MTN Mobile Money</option>
+                            <option value="telecel">Telecel Cash</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobileAmount">Amount (GHS)</label>
+                        <input type="number" id="mobileAmount" name="amount" min="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transactionId">Transaction ID</label>
+                        <input type="text" id="transactionId" name="transactionId" required 
+                               placeholder="Enter transaction ID from confirmation message">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="screenshot">Upload Screenshot</label>
+                        <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
+                        <small>Upload a clear screenshot of the transaction confirmation</small>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Deposit</button>
+                </form>
+            </div>
+
+            <!-- Crypto Deposit -->
+            <div id="crypto-deposit" class="method-content">
+                <div class="payment-instructions">
+                    <h3>Send Cryptocurrency</h3>
+                    <p>Please send the funds to the addresses below and upload a screenshot plus the transaction ID (TXID) when done.</p>
+                    
+                    <div class="crypto-addresses">
+                        <div class="crypto-address">
+                            <h4>Bitcoin (BTC)</h4>
+                            <div class="address-box">
+                                <code>1JNmwpCgsC5sm64Qt47habaL2hyJ28uVf3</code>
+                                <button type="button" class="copy-btn" data-address="1JNmwpCgsC5sm64Qt47habaL2hyJ28uVf3">Copy</button>
+                            </div>
+                        </div>
+
+                        <div class="crypto-address">
+                            <h4>TRON (TRC20)</h4>
+                            <div class="address-box">
+                                <code>TDNo1qZNUCjnKug3iS5ngbtsuhD522xjYr</code>
+                                <button type="button" class="copy-btn" data-address="TDNo1qZNUCjnKug3iS5ngbtsuhD522xjYr">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crypto-instructions">
+                        <h4>Step-by-Step Guide:</h4>
+                        
+                        <div class="instruction-section">
+                            <h5>Bitcoin (BTC):</h5>
+                            <ol>
+                                <li>Open your Bitcoin wallet or exchange app (e.g., Coinbase, Binance, Trust Wallet)</li>
+                                <li>Choose Send → select Bitcoin (BTC)</li>
+                                <li>Paste the BTC address above</li>
+                                <li>Enter the amount you want to send</li>
+                                <li>Check the network (must be BTC / Bitcoin network)</li>
+                                <li>Set the miner fee</li>
+                                <li>Review address, amount, fee</li>
+                                <li>Confirm the transaction</li>
+                                <li>Copy the TXID / Transaction Hash</li>
+                                <li>Take a screenshot of the transaction details</li>
+                            </ol>
+                        </div>
+
+                        <div class="instruction-section">
+                            <h5>TRON (TRC20):</h5>
+                            <ol>
+                                <li>Open your wallet/exchange that supports TRON/TRC20</li>
+                                <li>Choose Send → select the token you want to send</li>
+                                <li>Paste the TRC20 address above</li>
+                                <li>Select TRON / TRC20 as the network</li>
+                                <li>Enter the amount</li>
+                                <li>Confirm gas/fee</li>
+                                <li>Review address, amount, network</li>
+                                <li>Confirm the transaction</li>
+                                <li>Copy the TXID / Transaction Hash</li>
+                                <li>Take a screenshot showing transaction details</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="cryptoDepositForm">
+                    <div class="form-group">
+                        <label for="cryptoNetwork">Cryptocurrency</label>
+                        <select id="cryptoNetwork" name="cryptoNetwork" required>
+                            <option value="">Select Crypto</option>
+                            <option value="btc">Bitcoin (BTC)</option>
+                            <option value="trx">TRON (TRC20)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cryptoAmount">Amount</label>
+                        <input type="number" id="cryptoAmount" name="amount" step="0.00000001" required 
+                               placeholder="Enter amount in cryptocurrency">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txid">Transaction ID (TXID)</label>
+                        <input type="text" id="txid" name="txid" required 
+                               placeholder="Enter transaction hash/TXID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cryptoScreenshot">Upload Screenshot</label>
+                        <input type="file" id="cryptoScreenshot" name="screenshot" accept="image/*" required>
+                        <small>Upload screenshot showing recipient address, amount, and TXID</small>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Deposit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        class DepositSystem {
+            constructor() {
+                this.auth = auth;
+                this.currentUser = null;
+                this.init();
+            }
+
+            init() {
+                this.checkAuthentication();
+                this.setupTabs();
+                this.setupEventListeners();
+            }
+
+            checkAuthentication() {
+                if (!this.auth.isLoggedIn()) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+                this.currentUser = this.auth.getCurrentUser();
+                
+                // Setup logout
+                document.getElementById('logoutBtn').addEventListener('click', () => {
+                    this.auth.logout();
+                });
+            }
+
+            setupTabs() {
+                const tabBtns = document.querySelectorAll('.tab-btn');
+                const methodContents = document.querySelectorAll('.method-content');
+
+                tabBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const method = btn.dataset.method;
+                        
+                        // Update active tab
+                        tabBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        
+                        // Show corresponding content
+                        methodContents.forEach(content => content.classList.remove('active'));
+                        document.getElementById(`${method}-deposit`).classList.add('active');
+                    });
+                });
+            }
+
+            setupEventListeners() {
+                // Copy address buttons
+                document.querySelectorAll('.copy-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const address = btn.dataset.address;
+                        navigator.clipboard.writeText(address).then(() => {
+                            alert('Address copied to clipboard!');
+                        });
+                    });
+                });
+
+                // Mobile deposit form
+                document.getElementById('mobileDepositForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.processMobileDeposit();
+                });
+
+                // Crypto deposit form
+                document.getElementById('cryptoDepositForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.processCryptoDeposit();
+                });
+            }
+
+            processMobileDeposit() {
+                const formData = new FormData(document.getElementById('mobileDepositForm'));
+                const amount = parseFloat(formData.get('amount'));
+                const network = formData.get('mobileNetwork');
+                const transactionId = formData.get('transactionId');
+
+                if (amount < 10) {
+                    alert('Minimum deposit amount is GHS 10');
+                    return;
+                }
+
+                // Create transaction record
+                const transaction = {
+                    id: this.generateId(),
+                    type: 'deposit',
+                    amount: amount,
+                    method: `mobile_${network}`,
+                    transactionId: transactionId,
+                    description: `Mobile Money Deposit (${network.toUpperCase()})`,
+                    date: new Date().toISOString(),
+                    status: 'pending'
+                };
+
+                // Add to user transactions
+                if (!this.currentUser.transactions) this.currentUser.transactions = [];
+                this.currentUser.transactions.push(transaction);
+
+                // Save to localStorage
+                this.auth.updateUser(this.currentUser.id, {
+                    transactions: this.currentUser.transactions
+                });
+
+                alert('Deposit submitted successfully! It will be processed after verification.');
+                document.getElementById('mobileDepositForm').reset();
+            }
+
+            processCryptoDeposit() {
+                const formData = new FormData(document.getElementById('cryptoDepositForm'));
+                const amount = parseFloat(formData.get('amount'));
+                const network = formData.get('cryptoNetwork');
+                const txid = formData.get('txid');
+
+                if (amount <= 0) {
+                    alert('Please enter a valid amount');
+                    return;
+                }
+
+                // Create transaction record
+                const transaction = {
+                    id: this.generateId(),
+                    type: 'deposit',
+                    amount: amount,
+                    method: `crypto_${network}`,
+                    transactionId: txid,
+                    description: `Crypto Deposit (${network.toUpperCase()})`,
+                    date: new Date().toISOString(),
+                    status: 'pending'
+                };
+
+                // Add to user transactions
+                if (!this.currentUser.transactions) this.currentUser.transactions = [];
+                this.currentUser.transactions.push(transaction);
+
+                // Save to localStorage
+                this.auth.updateUser(this.currentUser.id, {
+                    transactions: this.currentUser.transactions
+                });
+
+                alert('Crypto deposit submitted! It will be processed after confirmation.');
+                document.getElementById('cryptoDepositForm').reset();
+            }
+
+            generateId() {
+                return Date.now().toString(36) + Math.random().toString(36).substr(2);
+            }
+        }
+
+        // Initialize deposit system
+        document.addEventListener('DOMContentLoaded', () => {
+            new DepositSystem();
+        });
+    </script>
+
+    <style>
+        .deposit-methods {
+            margin-top: 2rem;
+        }
+
+        .method-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            border-bottom-color: #2c5aa0;
+            color: #2c5aa0;
+            font-weight: bold;
+        }
+
+        .method-content {
+            display: none;
+        }
+
+        .method-content.active {
+            display: block;
+        }
+
+        .payment-instructions {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .recipient-info, .crypto-addresses {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        .instruction-section {
+            margin: 1.5rem 0;
+        }
+
+        .instruction-section h5 {
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .instruction-section ol {
+            margin-left: 1.5rem;
+        }
+
+        .instruction-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .crypto-address {
+            margin: 1rem 0;
+        }
+
+        .address-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .address-box code {
+            flex: 1;
+            font-family: monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            padding: 0.5rem 1rem;
+            background: #2c5aa0;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .method-tabs {
+                flex-direction: column;
+            }
+
+            .address-box {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .copy-btn {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</body>
+</html>

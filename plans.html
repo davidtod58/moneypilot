@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Plans - MoneyPilot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MoneyPilot</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="plans.html" class="active">Plans</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="plans-hero">
+        <div class="container">
+            <h1>Investment Plans</h1>
+            <p>Choose the perfect plan to start your investment journey with MoneyPilot</p>
+            
+            <div class="currency-toggle">
+                <span>GHS</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="currencyToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span>USD</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="investment-plans-detailed">
+        <div class="container">
+            <div class="plans-comparison">
+                <!-- Free Plan -->
+                <div class="plan-comparison-card">
+                    <div class="plan-header">
+                        <h3>Starter</h3>
+                        <div class="plan-price" data-ghs="0">Free</div>
+                        <p class="plan-description">Start for free. Withdraw your first GHS 20 to test the platform!</p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li class="feature-yes">✅ Maximum Lifetime Withdrawal: <strong data-ghs="20">GHS 20</strong></li>
+                            <li class="feature-no">❌ Cannot invest in paid plans</li>
+                            <li class="feature-yes">✅ Experience platform features</li>
+                            <li class="feature-yes">✅ Access to referral program</li>
+                            <li class="feature-yes">✅ Basic dashboard access</li>
+                        </ul>
+                    </div>
+                    <div class="plan-action">
+                        <a href="register.html" class="btn-plan-free">Get Started Free</a>
+                        <p class="plan-note">Perfect for testing the platform</p>
+                    </div>
+                </div>
+
+                <!-- Bronze Plan -->
+                <div class="plan-comparison-card">
+                    <div class="plan-header">
+                        <h3>Bronze</h3>
+                        <div class="plan-price" data-ghs="500"><span class="currency">GHS</span> 500</div>
+                        <p class="plan-description">Invest GHS 500 and get <strong data-ghs="2325.23">GHS 2,325.23</strong> at 3 weeks maturity.</p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li class="feature-yes">✅ Investment: <strong data-ghs="500">GHS 500</strong></li>
+                            <li class="feature-yes">✅ Maturity Period: <strong>3 Weeks</strong></li>
+                            <li class="feature-yes">✅ Withdrawal Limit: <strong data-ghs="5000">GHS 5,000</strong> per transaction</li>
+                            <li class="feature-yes">✅ Full platform access</li>
+                            <li class="feature-yes">✅ Priority support</li>
+                            <li class="feature-yes">✅ Referral earnings: 4% + GHS 24</li>
+                        </ul>
+                    </div>
+                    <div class="plan-returns">
+                        <h4>Expected Returns</h4>
+                        <div class="return-breakdown">
+                            <div class="return-item">
+                                <span>Investment:</span>
+                                <strong data-ghs="500">GHS 500</strong>
+                            </div>
+                            <div class="return-item">
+                                <span>Profit:</span>
+                                <strong data-ghs="1825.23">GHS 1,825.23</strong>
+                            </div>
+                            <div class="return-item total">
+                                <span>Total Return:</span>
+                                <strong data-ghs="2325.23">GHS 2,325.23</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-action">
+                        <a href="register.html" class="btn-plan">Invest in Bronze</a>
+                        <p class="plan-note">365% return in 3 weeks</p>
+                    </div>
+                </div>
+
+                <!-- Silver Plan -->
+                <div class="plan-comparison-card featured">
+                    <div class="plan-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Silver</h3>
+                        <div class="plan-price" data-ghs="900"><span class="currency">GHS</span> 900</div>
+                        <p class="plan-description">Grow your wealth. Invest GHS 900 and get <strong data-ghs="4185.41">GHS 4,185.41</strong> in just 3 weeks.</p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li class="feature-yes">✅ Investment: <strong data-ghs="900">GHS 900</strong></li>
+                            <li class="feature-yes">✅ Maturity Period: <strong>3 Weeks</strong></li>
+                            <li class="feature-yes">✅ Withdrawal Limit: <strong data-ghs="10000">GHS 10,000</strong> per transaction</li>
+                            <li class="feature-yes">✅ All Bronze features</li>
+                            <li class="feature-yes">✅ Faster withdrawal processing</li>
+                            <li class="feature-yes">✅ Enhanced referral bonuses</li>
+                            <li class="feature-yes">✅ Monthly portfolio review</li>
+                        </ul>
+                    </div>
+                    <div class="plan-returns">
+                        <h4>Expected Returns</h4>
+                        <div class="return-breakdown">
+                            <div class="return-item">
+                                <span>Investment:</span>
+                                <strong data-ghs="900">GHS 900</strong>
+                            </div>
+                            <div class="return-item">
+                                <span>Profit:</span>
+                                <strong data-ghs="3285.41">GHS 3,285.41</strong>
+                            </div>
+                            <div class="return-item total">
+                                <span>Total Return:</span>
+                                <strong data-ghs="4185.41">GHS 4,185.41</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-action">
+                        <a href="register.html" class="btn-plan-featured">Invest in Silver</a>
+                        <p class="plan-note">465% return in 3 weeks</p>
+                    </div>
+                </div>
+
+                <!-- Gold Plan -->
+                <div class="plan-comparison-card">
+                    <div class="plan-header">
+                        <h3>Gold</h3>
+                        <div class="plan-price" data-ghs="1700"><span class="currency">GHS</span> 1,700</div>
+                        <p class="plan-description">Accelerate your earnings. Invest GHS 1,700 and receive <strong data-ghs="7905.78">GHS 7,905.78</strong> after a Month cycle.</p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li class="feature-yes">✅ Investment: <strong data-ghs="1700">GHS 1,700</strong></li>
+                            <li class="feature-yes">✅ Maturity Period: <strong>5 Weeks</strong></li>
+                            <li class="feature-yes">✅ Withdrawal Limit: <strong data-ghs="15000">GHS 15,000</strong> per transaction</li>
+                            <li class="feature-yes">✅ All Silver features</li>
+                            <li class="feature-yes">✅ Dedicated account manager</li>
+                            <li class="feature-yes">✅ Weekly market insights</li>
+                            <li class="feature-yes">✅ Early access to new features</li>
+                        </ul>
+                    </div>
+                    <div class="plan-returns">
+                        <h4>Expected Returns</h4>
+                        <div class="return-breakdown">
+                            <div class="return-item">
+                                <span>Investment:</span>
+                                <strong data-ghs="1700">GHS 1,700</strong>
+                            </div>
+                            <div class="return-item">
+                                <span>Profit:</span>
+                                <strong data-ghs="6205.78">GHS 6,205.78</strong>
+                            </div>
+                            <div class="return-item total">
+                                <span>Total Return:</span>
+                                <strong data-ghs="7905.78">GHS 7,905.78</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-action">
+                        <a href="register.html" class="btn-plan">Invest in Gold</a>
+                        <p class="plan-note">465% return in 5 weeks</p>
+                    </div>
+                </div>
+
+                <!-- Platinum Plan -->
+                <div class="plan-comparison-card premium">
+                    <div class="plan-badge">VIP</div>
+                    <div class="plan-header">
+                        <h3>Platinum</h3>
+                        <div class="plan-price" data-ghs="3000"><span class="currency">GHS</span> 3,000</div>
+                        <p class="plan-description">Maximize your returns with elite status. Invest GHS 3,000 and get <strong data-ghs="13951.38">GHS 13,951.38</strong> at 6 weeks.</p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li class="feature-yes">✅ Investment: <strong data-ghs="3000">GHS 3,000</strong></li>
+                            <li class="feature-yes">✅ Maturity Period: <strong>6 Weeks</strong></li>
+                            <li class="feature-yes">✅ Withdrawal Limit: <strong data-ghs="20000">GHS 20,000</strong> per transaction</li>
+                            <li class="feature-yes">✅ All Gold features</li>
+                            <li class="feature-yes">✅ 24/7 premium support</li>
+                            <li class="feature-yes">✅ Custom investment strategies</li>
+                            <li class="feature-yes">✅ Exclusive investment opportunities</li>
+                            <li class="feature-yes">✅ Personal financial consultation</li>
+                        </ul>
+                    </div>
+                    <div class="plan-returns">
+                        <h4>Expected Returns</h4>
+                        <div class="return-breakdown">
+                            <div class="return-item">
+                                <span>Investment:</span>
+                                <strong data-ghs="3000">GHS 3,000</strong>
+                            </div>
+                            <div class="return-item">
+                                <span>Profit:</span>
+                                <strong data-ghs="10951.38">GHS 10,951.38</strong>
+                            </div>
+                            <div class="return-item total">
+                                <span>Total Return:</span>
+                                <strong data-ghs="13951.38">GHS 13,951.38</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-action">
+                        <a href="register.html" class="btn-plan-premium">Invest in Platinum</a>
+                        <p class="plan-note">465% return in 6 weeks</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plans-features-comparison">
+                <h2>Plan Features Comparison</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Starter</th>
+                                <th>Bronze</th>
+                                <th>Silver</th>
+                                <th>Gold</th>
+                                <th>Platinum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Minimum Investment</td>
+                                <td>Free</td>
+                                <td data-ghs="500">GHS 500</td>
+                                <td data-ghs="900">GHS 900</td>
+                                <td data-ghs="1700">GHS 1,700</td>
+                                <td data-ghs="3000">GHS 3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Maturity Period</td>
+                                <td>N/A</td>
+                                <td>3 Weeks</td>
+                                <td>3 Weeks</td>
+                                <td>5 Weeks</td>
+                                <td>6 Weeks</td>
+                            </tr>
+                            <tr>
+                                <td>Withdrawal Limit</td>
+                                <td data-ghs="20">GHS 20</td>
+                                <td data-ghs="5000">GHS 5,000</td>
+                                <td data-ghs="10000">GHS 10,000</td>
+                                <td data-ghs="15000">GHS 15,000</td>
+                                <td data-ghs="20000">GHS 20,000</td>
+                            </tr>
+                            <tr>
+                                <td>Expected Return</td>
+                                <td>N/A</td>
+                                <td data-ghs="2325.23">GHS 2,325.23</td>
+                                <td data-ghs="4185.41">GHS 4,185.41</td>
+                                <td data-ghs="7905.78">GHS 7,905.78</td>
+                                <td data-ghs="13951.38">GHS 13,951.38</td>
+                            </tr>
+                            <tr>
+                                <td>Referral Commission</td>
+                                <td>4%</td>
+                                <td>4%</td>
+                                <td>4%</td>
+                                <td>4%</td>
+                                <td>4%</td>
+                            </tr>
+                            <tr>
+                                <td>Referral Bonus</td>
+                                <td>GHS 24</td>
+                                <td>GHS 24</td>
+                                <td>GHS 24</td>
+                                <td>GHS 24</td>
+                                <td>GHS 24</td>
+                            </tr>
+                            <tr>
+                                <td>Support</td>
+                                <td>Basic</td>
+                                <td>Priority</td>
+                                <td>Enhanced</td>
+                                <td>Dedicated</td>
+                                <td>24/7 Premium</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="investment-process">
+                <h2>How to Get Started</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-icon">1</div>
+                        <h3>Register Account</h3>
+                        <p>Create your free MoneyPilot account in minutes</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon">2</div>
+                        <h3>Verify Identity</h3>
+                        <p>Complete KYC verification to enable withdrawals</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon">3</div>
+                        <h3>Deposit Funds</h3>
+                        <p>Add funds to your account via mobile money or crypto</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon">4</div>
+                        <h3>Choose Plan</h3>
+                        <p>Select your preferred investment plan</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon">5</div>
+                        <h3>Start Earning</h3>
+                        <p>Watch your investment grow and earn referral bonuses</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Start Your Investment Journey?</h2>
+                <p>Join thousands of investors who are already growing their wealth with MoneyPilot</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn-primary">Start Investing Now</a>
+                    <a href="about.html" class="btn-secondary">Learn More</a>
+                </div>
+                <div class="community-link">
+                    <p>Have questions? Join our <a href="https://chat.whatsapp.com/BR2lDg9u5v378KB4SE5XnU" target="_blank">WhatsApp Community</a> for support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MoneyPilot</h3>
+                    <p>Your automated gateway to crypto investment success.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="plans.html">Investment Plans</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="https://chat.whatsapp.com/BR2lDg9u5v378KB4SE5XnU" target="_blank">WhatsApp Group</a>
+                    <p>Email: admin@moneypilot.site</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MoneyPilot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <style>
+        .plans-hero {
+            background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .plans-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .plans-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .investment-plans-detailed {
+            padding: 80px 0;
+        }
+
+        .plans-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .plan-comparison-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid #e9ecef;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .plan-comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .plan-comparison-card.featured {
+            border-color: #00d9a6;
+            transform: scale(1.05);
+        }
+
+        .plan-comparison-card.premium {
+            border-color: #ffd700;
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #00d9a6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .plan-comparison-card.premium .plan-badge {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .plan-header h3 {
+            color: #2c5aa0;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00d9a6;
+            margin-bottom: 1rem;
+        }
+
+        .plan-comparison-card.premium .plan-price {
+            color: #ffd700;
+        }
+
+        .plan-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .plan-features {
+            margin-bottom: 2rem;
+        }
+
+        .plan-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f8f9fa;
+            display: flex;
+            align-items: center;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-yes, .feature-no {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-no {
+            color: #999;
+        }
+
+        .plan-returns {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .plan-returns h4 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .return-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .return-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .return-item.total {
+            border-top: 2px solid #2c5aa0;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .plan-action {
+            text-align: center;
+        }
+
+        .btn-plan-free, .btn-plan, .btn-plan-featured, .btn-plan-premium {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .btn-plan-free {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-plan {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .btn-plan-featured {
+            background: #00d9a6;
+            color: white;
+        }
+
+        .btn-plan-premium {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .btn-plan-free:hover, .btn-plan:hover, .btn-plan-featured:hover, .btn-plan-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .plan-note {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .plans-features-comparison {
+            margin-bottom: 4rem;
+        }
+
+        .plans-features-comparison h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c5aa0;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: #2c5aa0;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .investment-process {
+            margin-bottom: 4rem;
+        }
+
+        .investment-process h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c5aa0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: #2c5aa0;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+            border-radius: 15px;
+        }
+
+        .cta-section h2 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .community-link a {
+            color: #2c5aa0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .plans-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-comparison-card.featured {
+                transform: none;
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>

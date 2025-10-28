@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MoneyPilot</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MoneyPilot</h1>
+            </div>
+            <nav class="dashboard-nav">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                
+                <a href="deposit.html"  class="active">Deposit</a>
+                <a href="withdraw.html"  class="active">Withdraw</a>
+                <a href="kyc.html"  class="active">KYC</a>
+                <a href="#" id="logoutBtn"  class="active">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="user-info">
+                <h3 id="userName">Loading...</h3>
+                <p id="userPlan" class="plan-badge">Free</p>
+                <p id="userBalance">Balance: GHS 0.00</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active">Overview</a>
+                <a href="#investment" class="nav-item">Investment Plans</a>
+                <a href="#referral" class="nav-item">Referral Program</a>
+                <a href="#transactions" class="nav-item">Transactions</a>
+                <a href="#profile" class="nav-item">Profile</a>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Balance</h3>
+                        <p id="totalBalance">GHS 0.00</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Investments</h3>
+                        <p id="activeInvestments">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Profit</h3>
+                        <p id="totalProfit">GHS 0.00</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Referral Earnings</h3>
+                        <p id="referralEarnings">GHS 0.00</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <a href="deposit.html" class="btn-action">Deposit Funds</a>
+                        <a href="withdraw.html" class="btn-action">Withdraw</a>
+                        <a href="plans.html" class="btn-action">Invest Now</a>
+                        <a href="#referral" class="btn-action nav-link">Refer & Earn</a>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Transactions</h3>
+                    <div id="recentTransactions" class="transactions-list">
+                        <p>No recent transactions</p>
+                    </div>
+                </div>
+
+                <div class="daily-tasks">
+                    <h3>Daily Tasks</h3>
+                    <div class="task-list">
+                        <div class="task-item">
+                            <span>Complete KYC Verification</span>
+                            <a href="kyc.html" class="btn-task">Verify Now</a>
+                        </div>
+                        <div class="task-item">
+                            <span>Join WhatsApp Group</span>
+                            <a href="https://chat.whatsapp.com/BR2lDg9u5v378KB4SE5XnU" target="_blank" class="btn-task">Join Now</a>
+                        </div>
+                        <div class="task-item">
+                            <span>Invite Friends & Earn</span>
+                            <a href="#referral" class="btn-task nav-link">Get Link</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Investment Plans Section -->
+            <section id="investment" class="content-section">
+                <h2>Investment Plans</h2>
+                <div class="plans-grid">
+                    <div class="plan-card">
+                        <h3>Starter</h3>
+                        <div class="plan-price">Free</div>
+                        <p>Start for free. Withdraw your first GHS 20 to test the platform!</p>
+                        <ul>
+                            <li>Maximum Lifetime Withdrawal: GHS 20</li>
+                            <li>Cannot invest</li>
+                            <li>Experience platform features</li>
+                        </ul>
+                        <button class="btn-plan" disabled>Current Plan</button>
+                    </div>
+
+                    <div class="plan-card">
+                        <h3>Bronze</h3>
+                        <div class="plan-price" data-ghs="500">GHS 500</div>
+                        <p>Invest GHS 500 and get GHS 2,325.23 at 3 weeks maturity.</p>
+                        <ul>
+                            <li>Investment: GHS 500</li>
+                            <li>Maturity: 3 Weeks</li>
+                            <li>Withdrawal Limit: GHS 5,000</li>
+                        </ul>
+                        <button class="btn-plan invest-btn" data-plan="bronze" data-amount="500">Invest Now</button>
+                    </div>
+
+                    <div class="plan-card featured">
+                        <h3>Silver</h3>
+                        <div class="plan-price" data-ghs="900">GHS 900</div>
+                        <p>Grow your wealth. Invest GHS 900 and get GHS 4,185.41 in just 3 weeks.</p>
+                        <ul>
+                            <li>Investment: GHS 900</li>
+                            <li>Maturity: 3 Weeks</li>
+                            <li>Withdrawal Limit: GHS 10,000</li>
+                        </ul>
+                        <button class="btn-plan invest-btn" data-plan="silver" data-amount="900">Invest Now</button>
+                    </div>
+
+                    <div class="plan-card">
+                        <h3>Gold</h3>
+                        <div class="plan-price" data-ghs="1700">GHS 1,700</div>
+                        <p>Accelerate your earnings. Invest GHS 1,700 and receive GHS 7,905.78 after a Month cycle.</p>
+                        <ul>
+                            <li>Investment: GHS 1,700</li>
+                            <li>Maturity: 5 Weeks</li>
+                            <li>Withdrawal Limit: GHS 15,000</li>
+                        </ul>
+                        <button class="btn-plan invest-btn" data-plan="gold" data-amount="1700">Invest Now</button>
+                    </div>
+
+                    <div class="plan-card">
+                        <h3>Platinum</h3>
+                        <div class="plan-price" data-ghs="3000">GHS 3,000</div>
+                        <p>Maximize your returns with elite status. Invest GHS 3,000 and get GHS 13,951.38 at 6 weeks.</p>
+                        <ul>
+                            <li>Investment: GHS 3,000</li>
+                            <li>Maturity: 6 Weeks</li>
+                            <li>Withdrawal Limit: GHS 20,000</li>
+                        </ul>
+                        <button class="btn-plan invest-btn" data-plan="platinum" data-amount="3000">Invest Now</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Referral Program Section -->
+            <section id="referral" class="content-section">
+                <h2>Referral Program</h2>
+                <div class="referral-info">
+                    <div class="referral-stats">
+                        <div class="stat-card">
+                            <h3>Total Referrals</h3>
+                            <p id="totalReferrals">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Referral Earnings</h3>
+                            <p id="totalReferralEarnings">GHS 0.00</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Pending Bonus</h3>
+                            <p id="pendingBonus">GHS 0.00</p>
+                        </div>
+                    </div>
+
+                    <div class="referral-content">
+                        <div class="referral-benefits">
+                            <h3>Earn with Our Referral Program</h3>
+                            <ul>
+                                <li><strong>Instant GHS 24 Bonus</strong> for every friend who signs up with your link</li>
+                                <li><strong>4% Commission</strong> on their initial investment</li>
+                                <li><strong>Lifetime earnings</strong> from their investment activities</li>
+                            </ul>
+                        </div>
+
+                        <div class="referral-link">
+                            <h3>Your Referral Link</h3>
+                            <div class="link-container">
+                                <input type="text" id="referralLink" readonly>
+                                <button id="copyLinkBtn">Copy</button>
+                            </div>
+                            <p>Share this link with friends and start earning!</p>
+                        </div>
+
+                        <div class="share-buttons">
+                            <button class="share-btn" data-platform="whatsapp">Share on WhatsApp</button>
+                            <button class="share-btn" data-platform="telegram">Share on Telegram</button>
+                            <button class="share-btn" data-platform="facebook">Share on Facebook</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transactions Section -->
+            <section id="transactions" class="content-section">
+                <h2>Transaction History</h2>
+                <div class="transactions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsTableBody">
+                            <!-- Transactions will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <h2>Profile Settings</h2>
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <h3>Personal Information</h3>
+                        <form id="profileForm">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="profileName" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="profileEmail" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="profilePhone" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Referral Code</label>
+                                <input type="text" id="profileReferralCode" readonly>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="security-settings">
+                        <h3>Security</h3>
+                        <button id="changePasswordBtn" class="btn-action">Change Password</button>
+                        <button id="enable2FABtn" class="btn-action">Enable 2FA</button>
+                    </div>
+
+                    <div class="kyc-status">
+                        <h3>KYC Verification</h3>
+                        <div id="kycStatus" class="status-pending">
+                            Status: Not Verified
+                        </div>
+                        <a href="kyc.html" class="btn-action">Complete KYC Verification</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Investment Modal -->
+    <div id="investmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Confirm Investment</h3>
+            <div id="investmentDetails"></div>
+            <button id="confirmInvestment" class="btn-submit">Confirm Investment</button>
+        </div>
+    </div>
+
+    <style>
+    /* Invest Now Button Styling */
+    .btn-plan {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: #2c5aa0;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .btn-plan:hover {
+        background: #1e3a8a;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-plan:active {
+        transform: translateY(0);
+    }
+
+    .btn-plan:disabled {
+        background: #6c757d;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .btn-plan:disabled:hover {
+        background: #6c757d;
+        transform: none;
+    }
+
+    /* Specific styles for dashboard investment buttons */
+    .invest-btn {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .btn-plan {
+            padding: 0.875rem 1.5rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

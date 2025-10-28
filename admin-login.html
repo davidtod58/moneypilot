@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - MoneyPilot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MoneyPilot Admin</h1>
+            </div>
+            <nav>
+                <a href="index.html">Main Site</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm">
+            <div class="form-group">
+                <label for="email">Admin Email</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="admin@moneypilot.site">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required 
+                       placeholder="Enter admin password">
+            </div>
+            <button type="submit" class="btn-submit">Login as Admin</button>
+        </form>
+        <div class="form-links">
+            <p><a href="login.html">User Login</a></p>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const email = formData.get('email');
+            const password = formData.get('password');
+
+            const result = auth.login(email, password);
+            
+            if (result.success && result.user.role === 'admin') {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                alert('Invalid admin credentials');
+            }
+        });
+
+        // Redirect if already logged in as admin
+        if (auth.isLoggedIn() && auth.getCurrentUser().role === 'admin') {
+            window.location.href = 'admin-dashboard.html';
+        }
+    </script>
+</body>
+</html>

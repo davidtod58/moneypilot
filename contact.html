@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MoneyPilot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MoneyPilot</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="plans.html">Plans</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contact MoneyPilot</h1>
+            <p>We're here to help you with any questions or concerns about your investment journey</p>
+        </div>
+    </section>
+
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about our investment plans, need help with your account, or want to learn more about MoneyPilot? We're here to help!</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">📧</div>
+                            <div class="method-info">
+                                <h3>Email Support</h3>
+                                <p>admin@moneypilot.site</p>
+                                <small>Typically respond within 24 hours</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">💬</div>
+                            <div class="method-info">
+                                <h3>WhatsApp Community</h3>
+                                <p><a href="https://chat.whatsapp.com/BR2lDg9u5v378KB4SE5XnU" target="_blank">Join our Group</a></p>
+                                <small>Get instant help from our community</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">🕒</div>
+                            <div class="method-info">
+                                <h3>Response Time</h3>
+                                <p>24-48 Hours</p>
+                                <small>For email inquiries</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-preview">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <h4>How do I start investing?</h4>
+                                <p>Register an account, complete KYC verification, deposit funds, and choose your investment plan.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>What is the minimum investment?</h4>
+                                <p>The Bronze plan starts at GHS 500. We also have a free starter plan to test the platform.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>How long until I see returns?</h4>
+                                <p>Investment plans mature in 3-6 weeks depending on the plan you choose.</p>
+                            </div>
+                        </div>
+                        <a href="#faq" class="btn-secondary">View All FAQs</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <div class="contact-form-container">
+                        <h2>Send us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName">Full Name</label>
+                                <input type="text" id="contactName" name="name" required 
+                                       placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" name="email" required 
+                                       placeholder="Enter your email address">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number (Optional)</label>
+                                <input type="tel" id="contactPhone" name="phone" 
+                                       placeholder="Enter your phone number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <select id="contactSubject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="investment">Investment Questions</option>
+                                    <option value="account">Account Issues</option>
+                                    <option value="withdrawal">Withdrawal Support</option>
+                                    <option value="kyc">KYC Verification</option>
+                                    <option value="referral">Referral Program</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" name="message" required 
+                                          rows="6" placeholder="Please describe your inquiry in detail..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="contactConsent" name="consent" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the processing of my personal data according to the Privacy Policy
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emergency-support">
+                <div class="emergency-card">
+                    <div class="emergency-icon">🚨</div>
+                    <div class="emergency-content">
+                        <h3>Urgent Account Issues?</h3>
+                        <p>If you're experiencing urgent issues with your account, transactions, or security, please join our WhatsApp group for immediate assistance.</p>
+                        <a href="https://chat.whatsapp.com/BR2lDg9u5v378KB4SE5XnU" target="_blank" class="btn-primary">Get Immediate Help</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="faq" class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-category">
+                        <h3>Account & Registration</h3>
+                        <div class="faq-item">
+                            <h4>How do I create an account?</h4>
+                            <p>Click the "Register" button on our website, fill in your details, and verify your email address. The process takes less than 5 minutes.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Is KYC verification mandatory?</h4>
+                            <p>Yes, KYC verification is required to enable withdrawals and access all platform features. This helps us maintain security and compliance.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Can I have multiple accounts?</h4>
+                            <p>No, each individual is allowed only one account. Multiple accounts may lead to suspension.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>Investments & Returns</h3>
+                        <div class="faq-item">
+                            <h4>How are returns calculated?</h4>
+                            <p>Returns are based on our expert trading in cryptocurrency markets. Each plan has fixed returns based on the investment amount and duration.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>When do I receive my returns?</h4>
+                            <p>Returns are paid at the end of the maturity period for each investment plan (3-6 weeks depending on the plan).</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Can I withdraw my investment early?</h4>
+                            <p>Investments are locked until maturity to ensure optimal returns. Early withdrawal is not permitted.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>Deposits & Withdrawals</h3>
+                        <div class="faq-item">
+                            <h4>What payment methods do you accept?</h4>
+                            <p>We accept MTN Mobile Money, Telecel Cash, Bitcoin, and TRON (TRC20) for deposits and withdrawals.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>How long do withdrawals take?</h4>
+                            <p>Withdrawals are typically processed within 24 hours after approval. Crypto withdrawals may take additional time for blockchain confirmations.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Are there any fees?</h4>
+                            <p>We don't charge deposit fees. Withdrawal fees depend on the payment method and are clearly displayed before confirmation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>Referral Program</h3>
+                        <div class="faq-item">
+                            <h4>How does the referral program work?</h4>
+                            <p>You earn GHS 24 for each friend who signs up with your link, plus 4% of their initial investment amount.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>When do I receive referral bonuses?</h4>
+                            <p>Referral bonuses are credited instantly when your referred friend makes their first investment.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Is there a limit to referral earnings?</h4>
+                            <p>No, you can refer unlimited friends and earn unlimited referral bonuses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-notice">
+                <h3>🔒 Security Notice</h3>
+                <p>MoneyPilot will never ask for your password via email, phone, or social media. Always ensure you're on our official website (moneypilot.site) when entering your credentials. Beware of phishing attempts and fake support accounts.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MoneyPilot</h3>
+                    <p>Your automated gateway to crypto investment success.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="plans.html">Investment Plans</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="https://chat.whatsapp.com/BR2lDg9u5v378KB4SE5XnU" target="_blank">WhatsApp Group</a>
+                    <p>Email: admin@moneypilot.site</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MoneyPilot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const contactData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                subject: formData.get('subject'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+
+            // In a real application, this would send the data to a server
+            // For demo purposes, we'll just show a success message
+            console.log('Contact form submission:', contactData);
+            
+            alert('Thank you for your message! We will get back to you within 24-48 hours.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scroll for FAQ link
+        document.querySelector('a[href="#faq"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('faq').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <style>
+        .contact-hero {
+            background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .contact-content {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-info h2 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info > p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-methods {
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .method-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .method-info h3 {
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .method-info p {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .method-info small {
+            color: #666;
+        }
+
+        .method-info a {
+            color: #2c5aa0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .faq-preview {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .faq-preview h3 {
+            color: #2c5aa0;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-items {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faq-item h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .contact-form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-form-container h2 {
+            color: #2c5aa0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .emergency-support {
+            margin-bottom: 4rem;
+        }
+
+        .emergency-card {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .emergency-icon {
+            font-size: 4rem;
+            flex-shrink: 0;
+        }
+
+        .emergency-content h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .emergency-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            color: #2c5aa0;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .faq-category h3 {
+            color: #2c5aa0;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .security-notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .security-notice h3 {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .emergency-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .method-icon {
+                align-self: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero {
+                padding: 80px 0 40px;
+            }
+
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                padding: 40px 0;
+            }
+
+            .emergency-card {
+                padding: 2rem 1rem;
+            }
+
+            .emergency-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</body>
+</html>
