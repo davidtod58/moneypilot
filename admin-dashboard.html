@@ -351,8 +351,34 @@ function ensureAdminUser() {
         console.log('Default admin user created');
     }
 }
+         // Quick fix for domain deployment - run this on page load
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== MONEYPILOT DEPLOYMENT CHECK ===');
+    console.log('Domain:', window.location.hostname);
+    console.log('LocalStorage keys:', Object.keys(localStorage));
+    
+    // Migrate data if needed
+    migrateLocalStorageData();
+    
+    // Force reload users if none found
+    setTimeout(() => {
+        const users = JSON.parse(localStorage.getItem('moneyPilotUsers')) || [];
+        if (users.length === 0) {
+            console.log('No users found, checking alternative storage...');
+            const altUsers = JSON.parse(localStorage.getItem('moneypilot_users')) || [];
+            if (altUsers.length > 0) {
+                localStorage.setItem('moneyPilotUsers', JSON.stringify(altUsers));
+                console.log('Migrated users from alternative storage');
+            }
+        }
+    }, 1000);
+});
+
+         
+         
      </script>
 </body>
 
 </html>
+
 
