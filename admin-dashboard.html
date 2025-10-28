@@ -293,5 +293,59 @@
 
     <script src="auth.js"></script>
     <script src="admin-script.js"></script>
+
+     <script>
+         // Data migration script for domain deployment
+function migrateLocalStorageData() {
+    console.log('Checking for data migration...');
+    
+    // Check if we need to migrate from old keys
+    const oldKeys = ['moneyPilotUsers', 'currentMoneyPilotUser'];
+    const newKeys = ['moneypilot_users', 'moneypilot_current_user'];
+    
+    oldKeys.forEach((oldKey, index) => {
+        const oldData = localStorage.getItem(oldKey);
+        const newKey = newKeys[index];
+        
+        if (oldData && !localStorage.getItem(newKey)) {
+            console.log(`Migrating ${oldKey} to ${newKey}`);
+            localStorage.setItem(newKey, oldData);
+        }
+    });
+    
+    // Ensure admin user exists
+    ensureAdminUser();
+}
+
+function ensureAdminUser() {
+    const users = JSON.parse(localStorage.getItem('moneyPilotUsers')) || 
+                 JSON.parse(localStorage.getItem('moneypilot_users')) || [];
+    
+    const adminExists = users.find(user => user.email === 'admin@moneypilot.site');
+    
+    if (!adminExists) {
+        console.log('Creating default admin user...');
+        const adminUser = {
+            id: 'admin_' + Date.now().toString(36),
+            email: 'admin@moneypilot.site',
+            password: btoa('admin123'),
+            phone: '+233000000000',
+            fullName: 'System Administrator',
+            role: 'admin',
+            balance: 0,
+            plan: 'admin',
+            kycVerified: true,
+            joinedDate: new Date().toISOString(),
+            referralCode: 'ADMIN001'
+        };
+        
+        users.push(adminUser);
+        localStorage.setItem('moneyPilotUsers', JSON.stringify(users));
+        localStorage.setItem('moneypilot_users', JSON.stringify(users));
+        console.log('Default admin user created');
+    }
+}
+     </script>
 </body>
+
 </html>
