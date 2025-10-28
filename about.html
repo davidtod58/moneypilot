@@ -176,5 +176,431 @@
     </footer>
 
     <script src="script.js"></script>
+<style>
+    /* About Page Specific Styles */
+    .about-hero {
+        background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .about-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        font-weight: 300;
+    }
+
+    .about-content {
+        padding: 80px 0;
+        background: #f8f9fa;
+    }
+
+    .content-section {
+        background: white;
+        padding: 3rem;
+        margin-bottom: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        border-left: 4px solid #2c5aa0;
+    }
+
+    .content-section h2 {
+        color: #2c5aa0;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        border-bottom: 2px solid #f8f9fa;
+        padding-bottom: 0.5rem;
+    }
+
+    .content-section p {
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    /* Process Steps */
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .step {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        border: 2px solid #e9ecef;
+        transition: transform 0.3s ease;
+        position: relative;
+    }
+
+    .step:hover {
+        transform: translateY(-5px);
+        border-color: #2c5aa0;
+    }
+
+    .step-number {
+        background: #2c5aa0;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 1.5rem;
+    }
+
+    .step h3 {
+        color: #2c5aa0;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .step p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Referral Tiers */
+    .referral-tiers {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .tier {
+        background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
+        padding: 2rem;
+        border-radius: 10px;
+        border-left: 4px solid #00d9a6;
+    }
+
+    .tier h3 {
+        color: #2c5aa0;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .tier p {
+        color: #555;
+        line-height: 1.7;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .benefit {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+
+    .benefit:hover {
+        transform: translateY(-5px);
+        border-color: #2c5aa0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .benefit h3 {
+        color: #2c5aa0;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .benefit p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Warning Section */
+    .warning {
+        background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+        border-left: 4px solid #ffa502;
+    }
+
+    .warning h2 {
+        color: #856404;
+    }
+
+    .warning-points {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .warning-point {
+        background: rgba(255,255,255,0.8);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 3px solid #ffa502;
+    }
+
+    .warning-point h3 {
+        color: #856404;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .warning-point p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Final Thoughts */
+    .final-thoughts {
+        background: linear-gradient(135deg, #d1edff, #b3d9ff);
+        border-left: 4px solid #2c5aa0;
+    }
+
+    .final-thoughts h2 {
+        color: #004085;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+        background: #f8f9fa;
+        border-left: 4px solid #6c757d;
+        font-style: italic;
+    }
+
+    .disclaimer h3 {
+        color: #6c757d;
+        margin-bottom: 1rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+        color: white;
+        padding: 4rem 2rem;
+        border-radius: 15px;
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    .cta-section h2 {
+        color: white;
+        margin-bottom: 1rem;
+        font-size: 2.2rem;
+        border: none;
+    }
+
+    .cta-section p {
+        color: rgba(255,255,255,0.9);
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .cta-section a {
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        min-width: 200px;
+        text-align: center;
+    }
+
+    .btn-primary {
+        background: #00d9a6;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: #00c795;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,217,166,0.3);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+        background: white;
+        color: #2c5aa0;
+        transform: translateY(-2px);
+    }
+
+    .community-link a {
+        color: #00d9a6;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .community-link a:hover {
+        text-decoration: underline;
+    }
+
+    /* Note Styling */
+    .note {
+        background: #e3f2fd;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #2c5aa0;
+        margin: 1.5rem 0;
+        font-style: italic;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .about-hero {
+            padding: 100px 1rem 60px;
+        }
+
+        .about-hero h1 {
+            font-size: 2.2rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+        }
+
+        .about-content {
+            padding: 40px 1rem;
+        }
+
+        .content-section {
+            padding: 2rem 1.5rem;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+        }
+
+        .process-steps {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .step {
+            padding: 1.5rem;
+        }
+
+        .referral-tiers {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .benefits-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .benefit {
+            padding: 1.5rem;
+        }
+
+        .warning-points {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .cta-section {
+            padding: 3rem 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-buttons a {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .about-hero h1 {
+            font-size: 1.8rem;
+        }
+
+        .content-section {
+            padding: 1.5rem 1rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+
+        .cta-section {
+            padding: 2rem 1rem;
+        }
+
+        .cta-section h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    /* Animation for content sections */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .content-section {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Smooth scrolling for better UX */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+    
 </body>
 </html>
+
